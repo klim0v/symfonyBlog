@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Блог {{ user }}{% endblock %}
+{% block head %}
+    <h1 class="logo">Блог {{ user }}</h1>
+{% endblock %}
+{% block body %}
+    <h2>
+    <a class="btn btn-primary btn-lg" href="{{ path('blog_user_add') }}">Добавить</a>
+    </h2>
+    {% for post in posts %}
+        <article class="post">
+            <h2>
+                <a href="{{ path('blog_user_page', { page: post.id }) }}">
+                    {{ post.title }}
+                </a>
+            </h2>
+
+            {{ post.summary }}
+            <a href="{{ path('blog_user_edit', { page: post.id }) }}">Изменить</a>
+        </article>
+    {% else %}
+        <div class="well">{{ 'post.no_posts_found'|trans }}</div>
+    {% endfor %}
+
+{% endblock %}

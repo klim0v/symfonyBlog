@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'homepage' %}
+
+{#
+    the homepage is a special page which displays neither a header nor a footer.
+    this is done with the 'trick' of defining empty Twig blocks without any content
+#}
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block body %}
+    <div class="page-header">
+
+        <h1>Выберете режим просмотра</h1>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+                <p>
+                    <a class="btn btn-primary btn-lg" href="{{ path('blog_show_all') }}">
+                        Публичный просмотр
+                    </a>
+                </p>
+        </div>
+
+        <div class="col-sm-6">
+                <p>
+                    <a class="btn btn-primary btn-lg" href="{{ path('blog_user_show_all') }}">
+                        Мой Блог
+                    </a>
+                </p>
+        </div>
+    </div>
+{% endblock %}

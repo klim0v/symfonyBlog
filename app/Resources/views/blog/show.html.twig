@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Статья №{{ post.id }}{% endblock %}
+
+{% block body %}
+    <h2 class="genus-name">{{ post.title }}</h2>
+    <div class="sea-creature-container">
+        <div class="genus-details">
+            <dl class="genus-details-list">
+                <dt>Коротко:</dt>
+                <dd>{{ post.summary }}</dd>
+                <dt>Весь текст:</dt>
+                <dd>{{ post.body }}</dd>
+                <dt>Дата создания:</dt>
+                <dd>{{ post.created.date }}</dd>
+            </dl>
+        </div>
+    </div>
+
+{% endblock %}
+

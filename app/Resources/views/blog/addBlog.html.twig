@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Добавление блока{% endblock %}
+
+{% block head %}
+    <h1 class="logo">Блог {{ user }}</h1>
+{% endblock %}
+
+{% block body %}
+
+    {{ form(form_add_blog) }}
+
+{% endblock %}
