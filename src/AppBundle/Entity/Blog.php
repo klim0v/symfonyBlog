@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+
 use Symfony\Component\Validator\Constraints\DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -29,9 +30,10 @@ class Blog
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="blogs")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $idUser;
+    private $user;
 
 
     /**
@@ -190,5 +192,29 @@ class Blog
     public function getIdUser()
     {
         return $this->idUser;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Blog
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

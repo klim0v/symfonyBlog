@@ -47,15 +47,18 @@ class UserPageController extends Controller
      * @Route("/user/blog/{page}", defaults={"page": "1"}, requirements={"page": "[1-9]\d*"}, name="blog_user_show_all")
      * @Method("GET")
      */
-    public function blogUserViewAction($page)
+    public function blogUserViewAction($page, Request $request)
     {
-        $totalBlog =
-        $name = $this->getUser()->getUsername();
-        $id = $this->getUser()->getId();
-        $repository = $this->getDoctrine()->getRepository(Blog::class);
-        $query = $repository->createQueryBuilder('p')->where("p.idUser = '$id'")->getQuery();
-        $posts = $query->getResult();
-        return $this->render('blog/showUserAll.html.twig', ['posts' => $posts, 'user' => $name]);
+        $user = $this->getUser();
+        $name = $user->getUsername();
+        $query = $user->getBlog();
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', $page)/*page number*/,
+            5/*limit per page*/
+        );
+        return $this->render('blog/showUserAll.html.twig', ['pagination' => $pagination, 'user' => $name]);
     }
 
     /**
@@ -63,9 +66,22 @@ class UserPageController extends Controller
      */
     public function blogEdit($page, Request $request)
     {
-        $name = $this->getUser()->getUsername();
-        $em = $this->getDoctrine();
-        $post = $em->getRepository(Blog::class)->find($page);
+        $user = $this->getUser();
+        $userId = $user->getId();
+        $name= $user->getUsername();
+        /*
+        $post = $this->getDoctrine()->getRepository(Blog::class)->find($page);
+        if ($post->getUser() !== $user)
+            return 0;
+        */
+        $repository = $this->getDoctrine()->getRepository(Blog::class);
+        //$post=$repository->findBy(array('id' => $page, 'user' => $userId), array());
+        $query = $repository->createQueryBuilder('p')
+        ->where("  p.user = :user AND p.id = :idPost ")
+        ->setParameters(array('user' => $userId, 'idPost' => $page))
+        ->getQuery(); //
+        $post = $query->getSingleResult();
+
         $form = $this->createForm(FormType::class, $post);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
@@ -83,11 +99,13 @@ class UserPageController extends Controller
      */
     public function blogAdd(Request $request)
     {
+
         $post = new Blog();
+        $user = $this->getUser();
+        $name= $user->getUsername();
+        $post->setUser($user);
         $form = $this->createForm(FormType::class, $post);
-        $name = $this->getUser()->getUsername();
-        $id = $this->getUser()->getId();
-        $post->setIdUser($id);
+
         $post->setCreated(new \DateTime());
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {

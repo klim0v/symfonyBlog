@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityRepository;
 
 class BlogRepository extends EntityRepository
 {
-/*
+
     public function findAllBlogCount(){
         $qry = $this->createQueryBuilder("b");
         $qry->select("count(b)");
@@ -33,5 +33,5 @@ class BlogRepository extends EntityRepository
         return $qry->getQuery()->getResult();
 
     }
-*/
+
 }

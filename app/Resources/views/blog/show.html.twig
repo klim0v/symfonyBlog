@@ -12,7 +12,7 @@
                 <dt>Весь текст:</dt>
                 <dd>{{ post.body }}</dd>
                 <dt>Дата создания:</dt>
-                <dd>{{ post.created.date }}</dd>
+                <dd>{{ post.created.date | date('Y-m-d H:i:s')}}</dd>
             </dl>
         </div>
     </div>

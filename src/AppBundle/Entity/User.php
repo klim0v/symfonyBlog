@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -42,6 +43,15 @@ class User implements UserInterface
      */
     private $roles = [];
 
+    /**
+    * @ORM\OneToMany(targetEntity="Blog", mappedBy="user")
+    */
+    private $blog;
+
+    public function __construct()
+    {
+        $this->blog = new ArrayCollection();
+    }
 
     public function getRoles()
     {
@@ -142,5 +152,49 @@ class User implements UserInterface
         $this->password = $password;
     
         return $this;
+    }
+
+    /**
+     * Add blog
+     *
+     * @param \AppBundle\Entity\Blog $blog
+     *
+     * @return User
+     */
+    public function addBlog(\AppBundle\Entity\Blog $blog)
+    {
+        $this->blog[] = $blog;
+    
+        return $this;
+    }
+
+    /**
+     * Remove blog
+     *
+     * @param \AppBundle\Entity\Blog $blog
+     */
+    public function removeBlog(\AppBundle\Entity\Blog $blog)
+    {
+        $this->blog->removeElement($blog);
+    }
+
+    /**
+     * Get blogs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlogs()
+    {
+        return $this->blog;
+    }
+
+    /**
+     * Get blog
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlog()
+    {
+        return $this->blog;
     }
 }
