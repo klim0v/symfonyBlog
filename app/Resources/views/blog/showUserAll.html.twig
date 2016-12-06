@@ -1,14 +1,42 @@
-{% extends 'base.html.twig' %}
+{% extends 'page.html.twig' %}
 
-{% block title %}Блог {{ user }}{% endblock %}
-{% block head %}
-    <h1 class="logo">Блог {{ user }}</h1>
-{% endblock %}
-{% block body %}
-    <h2>
-    <a class="btn btn-primary btn-lg" href="{{ path('blog_user_add') }}">Добавить</a>
-    </h2>
-    {% for post in pagination %}
+{% block size_title %}Блог {{ app.user.username }}{% endblock %}
+
+{% block page_title %}Блог {{ app.user.username }}{% endblock %}
+
+{% block main %}
+
+        <ul>
+          <li>
+              <h2><a class="" href="{{ path('blog_user_add') }}">Добавить</a></h2>
+          </li>
+        </ul>
+
+    {% for blog in pagination %}
+        <article class="blog blog-teaser">
+
+            <h2>
+                <a href="{{ path('blog_page', { page: blog.id }) }}">{{ blog.title }}</a>
+            </h2>
+            <div class="container blog-container">
+                <div class="field field_created">
+                    {{ blog.created|date("d-m-Y H:m") }}
+                </div>
+                <div class="field field-body-wummary">
+                    {{ blog.summary|raw }}
+                </div>
+                <nav class="link-menu" role="navigation">
+                    <ul>
+                        <li class="read-more"><a href="{{ path('blog_user_edit', { page: blog.id }) }}" >Редактировать</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </article>
+    {% else %}
+        <div class="well">{{ 'У вас пока нет не одного блога'|trans }}</div>
+    {% endfor %}
+    {#{% for post in pagination %}
         <article class="post">
             <h2>
                 <a href="{{ path('blog_user_page', { page: post.id }) }}">
@@ -21,7 +49,7 @@
         </article>
     {% else %}
         <div class="well">{{ 'post.no_posts_found'|trans }}</div>
-    {% endfor %}
+    {% endfor %}#}
     <div class="navigation">
         {{ knp_pagination_render(pagination) }}
     </div>

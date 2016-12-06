@@ -1,23 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'page.html.twig' %}
+{% block title %}Блог {{ app.user.username }}{% endblock %}
+{% block page_title %} Блог {{ app.user.username }}
+    Статья № {{ pagination.items[0].id }} {{ pagination.items[0].title }} {% endblock %} {# НОМЕРА ID НЕ РАВНЫ НОМЕРУ ПО ПОРЯДКУ#}
+{% block main %}
+    <article class="blog">
+        <div class="container blog-container">
+            <div class="field field_created">
+                {{ pagination.items[0].created|date("d-m-Y H:m") }}
+            </div>
+            <div class="field field-body">
+                    {{ pagination.items[0].body|raw }}
+            </div>
 
-{% block title %}Блог {{ user }} Статья №{{ post.id }}{% endblock %}
-{% block head %}
-    <h1 class="logo">Блог {{ user }}</h1>
-{% endblock %}
-{% block body %}
-    <h2 class="genus-name">{{ post.title }}</h2>
-    <div class="sea-creature-container">
-        <div class="genus-details">
-            <dl class="genus-details-list">
-                <dt>Коротко:</dt>
-                <dd>{{ post.summary }}</dd>
-                <dt>Весь текст:</dt>
-                <dd>{{ post.body }}</dd>
-                <dt>Дата создания:</dt>
-                <dd>{{ post.created.date }}</dd>
-            </dl>
         </div>
-    </div>
+    </article>
 
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
 {% endblock %}
 

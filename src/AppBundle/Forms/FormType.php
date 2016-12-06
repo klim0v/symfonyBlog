@@ -8,6 +8,9 @@
 
 namespace AppBundle\Forms;
 
+
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -19,10 +22,10 @@ class FormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('summary')
-            ->add('body')
-            ->add('Save all', SubmitType::class)
+            ->add('title', TextType::class, array('label' => 'Заголовок'))
+            ->add('summary', TextareaType::class, array('label' => 'Коротко'))
+            ->add('body', TextareaType::class, array('label' => 'Полный текст'))
+            ->add('Save all', SubmitType::class, array('label' => 'Сохранить'))
         ;
     }
 

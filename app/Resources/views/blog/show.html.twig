@@ -1,21 +1,21 @@
-{% extends 'base.html.twig' %}
+{% extends 'page.html.twig' %}
 
-{% block title %}Статья №{{ post.id }}{% endblock %}
+{% block page_title %}Статья №{{ pagination.items[0].id }}{% endblock %}
 
-{% block body %}
-    <h2 class="genus-name">{{ post.title }}</h2>
-    <div class="sea-creature-container">
-        <div class="genus-details">
-            <dl class="genus-details-list">
-                <dt>Коротко:</dt>
-                <dd>{{ post.summary }}</dd>
-                <dt>Весь текст:</dt>
-                <dd>{{ post.body }}</dd>
-                <dt>Дата создания:</dt>
-                <dd>{{ post.created.date | date('Y-m-d H:i:s')}}</dd>
-            </dl>
+{% block main %}
+    <article class="blog">
+        <div class="container blog-container">
+            <div class="field field_created">
+                {{ pagination.items[0].created|date("d-m-Y H:m") }}
+            </div>
+            <div class="field field-body">
+                {{ pagination.items[0].body|raw }}
+            </div>
+
         </div>
+    </article>
+
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
     </div>
-
 {% endblock %}
-

@@ -36,11 +36,23 @@ class UserPageController extends Controller
      * @Route("/user/blog/page/{page}", requirements={"page": "[1-9]\d*"}, name="blog_user_page")
      * @Method("GET")
      */
-    public function indexUserAction($page)
+    public function indexUserAction($page, Request $request)
     {
-        $name = $this->getUser()->getUsername();
-        $post = $this->getDoctrine()->getRepository(Blog::class)->find($page);
-        return $this->render('blog/showUser.html.twig', ['post' => $post, 'user' => $name]);
+        $user = $this->getUser();
+        $userId = $user->getId();
+        $repository = $this->getDoctrine()->getRepository(Blog::class);
+        $query = $repository->createQueryBuilder('p')
+            ->where("  p.user = :user ")
+            ->setParameter('user', $userId)
+            ->orderBy('p.id', 'ASC')
+            ->getQuery();
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', $page)/*page number*/,
+            1/*limit per page*/
+        );
+        return $this->render('blog/showUser.html.twig', ['pagination' => $pagination]);
     }
 
     /**
@@ -50,15 +62,21 @@ class UserPageController extends Controller
     public function blogUserViewAction($page, Request $request)
     {
         $user = $this->getUser();
-        $name = $user->getUsername();
-        $query = $user->getBlog();
+        $userId = $user->getId();
+        $repository = $this->getDoctrine()->getRepository(Blog::class);
+        $query = $repository->createQueryBuilder('p')
+            ->where("  p.user = :user ")
+            ->setParameter('user', $userId)
+            //->orderBy('p.id', 'ASC')
+            ->getQuery(); //
+        //$query = $user->getBlog();
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
-            $request->query->getInt('page', $page)/*page number*/,
+            $request->query->getInt('page', $page)/*page number*/, // НОМЕРА ID НЕ РАВНЫ НОМЕРУ ПО ПОРЯДКУ
             5/*limit per page*/
         );
-        return $this->render('blog/showUserAll.html.twig', ['pagination' => $pagination, 'user' => $name]);
+        return $this->render('blog/showUserAll.html.twig', ['pagination' => $pagination]);
     }
 
     /**
@@ -68,7 +86,6 @@ class UserPageController extends Controller
     {
         $user = $this->getUser();
         $userId = $user->getId();
-        $name= $user->getUsername();
         /*
         $post = $this->getDoctrine()->getRepository(Blog::class)->find($page);
         if ($post->getUser() !== $user)
@@ -90,7 +107,7 @@ class UserPageController extends Controller
             $em->flush();
             return $this->redirectToRoute('blog_user_show_all');
         }
-        return $this->render('blog/editBlog.html.twig', ['form_edit_blog' => $form->createView(), 'user' => $name]);
+        return $this->render('blog/editBlog.html.twig', ['form_edit_blog' => $form->createView()]);
     }
 
     /**
@@ -102,7 +119,6 @@ class UserPageController extends Controller
 
         $post = new Blog();
         $user = $this->getUser();
-        $name= $user->getUsername();
         $post->setUser($user);
         $form = $this->createForm(FormType::class, $post);
 
@@ -114,6 +130,6 @@ class UserPageController extends Controller
             $em->flush();
             return $this->redirectToRoute('blog_user_show_all');
         }
-        return $this->render('blog/addBlog.html.twig', ['form_add_blog' => $form->createView(), 'user' => $name]);
+        return $this->render('blog/addBlog.html.twig', ['form_add_blog' => $form->createView()]);
     }
 }

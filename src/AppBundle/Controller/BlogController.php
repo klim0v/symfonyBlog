@@ -24,10 +24,19 @@ class BlogController extends Controller
      * @Route("/blog/page/{page}", requirements={"page": "[1-9]\d*"}, name="blog_page")
      * @Method("GET")
      */
-    public function indexAction($page)
+    public function indexAction($page, Request $request)
     {
-        $post = $this->getDoctrine()->getRepository(Blog::class)->find($page);
-        return $this->render('blog/show.html.twig', ['post' => $post]);
+
+        $repository = $this->getDoctrine()->getRepository(Blog::class);
+        $query = $repository->createQueryBuilder('p')
+            ->getQuery();
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', $page)/*page number*/,
+            1/*limit per page*/
+        );
+        return $this->render('blog/show.html.twig', ['pagination' => $pagination]);
     }
 
     /**
@@ -38,7 +47,8 @@ class BlogController extends Controller
     {
 
         $rep = $this->getDoctrine()->getRepository(Blog::class);
-        $query= $rep->findAll();//(["page" => $page]);
+        $query= $rep->createQueryBuilder('p')->getQuery();
+        //(["page" => $page]);
         /*$total= $rep->findAllBlogCount();
         $posts = $rep->findAll();
         $pages = [
@@ -46,9 +56,9 @@ class BlogController extends Controller
             "page" => $page
         ];
 
-               $em    = $this->get('doctrine.orm.entity_manager');
-               $dql   = "SELECT a FROM AppBundle:Blog a";
-               $query = $em->createQuery($dql);
+        $em    = $this->get('doctrine.orm.entity_manager');
+        $dql   = "SELECT a FROM AppBundle:Blog a";
+        $query = $em->createQuery($dql);
        */
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

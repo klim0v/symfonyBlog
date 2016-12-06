@@ -1,13 +1,17 @@
-{% extends 'base.html.twig' %}
+{% extends 'page.html.twig' %}
 
-{% block title %}Добавление блока{% endblock %}
+{% block page_title %}Добавление блока{% endblock %}
 
-{% block head %}
-    <h1 class="logo">Блог {{ user }}</h1>
-{% endblock %}
 
-{% block body %}
+{% block main %}
 
     {{ form(form_add_blog) }}
 
+{% endblock %}
+{% block javascripts %}
+    <script src="/scripts/vendor/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace( 'form_summary' );
+        CKEDITOR.replace( 'form_body' );
+    </script>
 {% endblock %}

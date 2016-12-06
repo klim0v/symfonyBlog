@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {% block header %}
+        <header>
+            {% block logo %}
+                <div class="block block-logo">
+                    <div class="side-log">
+                        <img src="/images/logo.png" />
+                    </div>
+                </div>
+            {% endblock %}
+            {% block main_menu %}
+                <div class="main-menu" id="menu_main_menu">
+                    <div class="type-menu">
+                        <ul>
+                            <li><a href="{{ path("blog_show_all") }}">Все блоги</a></li>
+                            <li><a href="{{ path("blog_user_show_all") }}">Мои блоги</a></li>
+                            <li><a href="{{ path("blog_user_add") }}">Добавить блог</a></li>
+                            <li><a href="{{ path("login") }}">Вход</a></li>
+                        </ul>
+                    </div>
+                </div>
+            {% endblock %}
+
+        </header>
+    {% endblock %}
+
+
+    {% block content %}
+        <div id="main_container">
+        {% block site_title %}
+            <div class="page_title" id="page_title">
+                <h1>{% block page_title %}Page title{% endblock %}</h1>
+            </div>
+        {% endblock %}
+            <main class="{% block main_class %}{% endblock %}">
+            {% block main %}{% endblock %}
+            </main>
+        </div>
+    {% endblock %}
+
+
+    {% block footer %}
+        <footer role="contentinfo">
+            <div class="block block-copyright">
+                Copyright &copy; 2016. All right reserved.
+            </div>
+        </footer>
+    {% endblock %}
+{% endblock %}
