@@ -15,9 +15,14 @@
                     <div class="type-menu">
                         <ul>
                             <li><a href="{{ path("blog_show_all") }}">Все блоги</a></li>
-                            <li><a href="{{ path("blog_user_show_all") }}">Мои блоги</a></li>
-                            <li><a href="{{ path("blog_user_add") }}">Добавить блог</a></li>
-                            <li><a href="{{ path("login") }}">Вход</a></li>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <li><a href="{{ path("blog_user_show_all") }}">Мои блоги</a></li>
+                                <li><a href="{{ path("blog_user_add") }}">Добавить блог</a></li>
+                                <li><a href="{{ path("logout") }}">Выход</a></li>
+                            {% else %}
+                                <li><a href="{{ path("login") }}">Вход</a></li>
+                            {% endif %}
+                            <li><a href="{{ path("about_us") }}">О нас</a></li>
                         </ul>
                     </div>
                 </div>

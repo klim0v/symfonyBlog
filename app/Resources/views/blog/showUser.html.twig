@@ -1,22 +1,19 @@
 {% extends 'page.html.twig' %}
 {% block title %}Блог {{ app.user.username }}{% endblock %}
-{% block page_title %} Блог {{ app.user.username }}
-    Статья № {{ pagination.items[0].id }} {{ pagination.items[0].title }} {% endblock %} {# НОМЕРА ID НЕ РАВНЫ НОМЕРУ ПО ПОРЯДКУ#}
+{% block page_title %}  {{ post.title }} {% endblock %}
 {% block main %}
     <article class="blog">
         <div class="container blog-container">
             <div class="field field_created">
-                {{ pagination.items[0].created|date("d-m-Y H:m") }}
+                {{ post.created|date("d-m-Y H:m") }}
             </div>
             <div class="field field-body">
-                    {{ pagination.items[0].body|raw }}
+                    {{ post.body|raw }}
             </div>
 
         </div>
     </article>
 
-    <div class="navigation">
-        {{ knp_pagination_render(pagination) }}
-    </div>
+
 {% endblock %}
 

@@ -41,18 +41,9 @@ class UserPageController extends Controller
         $user = $this->getUser();
         $userId = $user->getId();
         $repository = $this->getDoctrine()->getRepository(Blog::class);
-        $query = $repository->createQueryBuilder('p')
-            ->where("  p.user = :user ")
-            ->setParameter('user', $userId)
-            ->orderBy('p.id', 'ASC')
-            ->getQuery();
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $query, /* query NOT result */
-            $request->query->getInt('page', $page)/*page number*/,
-            1/*limit per page*/
-        );
-        return $this->render('blog/showUser.html.twig', ['pagination' => $pagination]);
+        $post=$repository->findOneBy(array('id' => $page, 'user' => $userId));
+        
+        return $this->render('blog/showUser.html.twig', ['post' => $post]);
     }
 
     /**

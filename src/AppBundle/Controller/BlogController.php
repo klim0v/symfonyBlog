@@ -28,15 +28,8 @@ class BlogController extends Controller
     {
 
         $repository = $this->getDoctrine()->getRepository(Blog::class);
-        $query = $repository->createQueryBuilder('p')
-            ->getQuery();
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $query, /* query NOT result */
-            $request->query->getInt('page', $page)/*page number*/,
-            1/*limit per page*/
-        );
-        return $this->render('blog/show.html.twig', ['pagination' => $pagination]);
+        $post = $post=$repository->findOneBy(array('id' => $page));
+        return $this->render('blog/show.html.twig', ['post' => $post]);
     }
 
     /**
