@@ -58,9 +58,8 @@ class UserPageController extends Controller
         $query = $repository->createQueryBuilder('p')
             ->where("  p.user = :user ")
             ->setParameter('user', $userId)
-            //->orderBy('p.id', 'ASC')
+            ->orderBy('p.id', 'DESC')
             ->getQuery(); //
-        //$query = $user->getBlog();
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -77,13 +76,8 @@ class UserPageController extends Controller
     {
         $user = $this->getUser();
         $userId = $user->getId();
-        /*
-        $post = $this->getDoctrine()->getRepository(Blog::class)->find($page);
-        if ($post->getUser() !== $user)
-            return 0;
-        */
+        
         $repository = $this->getDoctrine()->getRepository(Blog::class);
-        //$post=$repository->findBy(array('id' => $page, 'user' => $userId), array());
         $query = $repository->createQueryBuilder('p')
         ->where("  p.user = :user AND p.id = :idPost ")
         ->setParameters(array('user' => $userId, 'idPost' => $page))

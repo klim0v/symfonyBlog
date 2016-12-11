@@ -14,9 +14,6 @@
                 </li>
             </ul>
 
-
-
-
     {% else %}
 
         <form action="{{ path('login') }}" method="post">
@@ -29,14 +26,15 @@
             {#<input type="hidden" name="_csrf_token"
                    value="{{ csrf_token('authenticate') }}"
             >  #}
-            {#
-                 <input type="hidden" name="_target_path" value="/account" />
-            #}
+            <input type="hidden" name="_target_path" value="/user/blog" />
 
             <button type="submit">Авторизоваться</button>
+            <div>
+                <a href="{{ path('registration') }}">Зарегистрироваться сейчас</a>
+            </div>
         </form>
 
-            <a href="{{ path('registration') }}">Ты еще не с нами? Присоединяйся!</a>
+
 
     {% endif %}
 

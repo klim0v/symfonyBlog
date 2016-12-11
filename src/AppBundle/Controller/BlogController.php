@@ -40,19 +40,10 @@ class BlogController extends Controller
     {
 
         $rep = $this->getDoctrine()->getRepository(Blog::class);
-        $query= $rep->createQueryBuilder('p')->getQuery();
-        //(["page" => $page]);
-        /*$total= $rep->findAllBlogCount();
-        $posts = $rep->findAll();
-        $pages = [
-            "total" => $total,
-            "page" => $page
-        ];
-
-        $em    = $this->get('doctrine.orm.entity_manager');
-        $dql   = "SELECT a FROM AppBundle:Blog a";
-        $query = $em->createQuery($dql);
-       */
+        $query= $rep->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery();
+        
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
@@ -61,7 +52,6 @@ class BlogController extends Controller
         );
         // parameters to template
         return $this->render('blog/showAll.html.twig', array('pagination' => $pagination));
-        //return $this->render('blog/showAll.html.twig', ['posts' => $posts, 'pag' => $pages]);
     }
 
     
