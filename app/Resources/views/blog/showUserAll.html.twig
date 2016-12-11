@@ -1,28 +1,33 @@
 {% extends 'page.html.twig' %}
 
-{% block size_title %}Блог {{ app.user.username }}{% endblock %}
+{% block title %}Блоги {{ app.user.username }}{% endblock %}
 
-{% block page_title %}Блог пользователя {{ app.user.username }}{% endblock %}
+{% block page_title %}Блоги пользователя {{ app.user.username }}{% endblock %}
 
 {% block main %}
 
-    {% for blog in pagination %}
+    {% for post in pagination %}
         <article class="blog blog-teaser" xmlns="http://www.w3.org/1999/html">
 
             <h2 class="article-title">
-                <a href="{{ path('blog_page', { page: blog.id }) }}">{{ blog.title }}</a>
+                <a href="{{ path('blog_user_page', { page: post.id }) }}">{{ post.title }}</a>
             </h2>
             <div class="container blog-container">
                 <div class="field field_created">
-                    {{ blog.created|date("d-m-Y H:m") }}
+                    {% if post.edited|date("d-m-Y H:m") != "30-11-0001 00:11" %}
+                        Изменен: {{ post.edited|date("d-m-Y H:m") }}
+                    {% else %}
+                        Дата создания: {{ post.created|date("d-m-Y H:m") }}
+                    {% endif %}
                 </div>
                 <div style="display: block; text-align: center;">
-                    {{ blog.summary|raw }}
+                    {{ post.summary|raw }}
                 </div>
                 <nav class="link-menu" role="navigation">
                     <ul>
-                        <li class="read-more"><a href="{{ path('blog_page', { page: blog.id }) }}" >Подробнее</a></li>
-                        <li class="read-more"><a href="{{ path('blog_user_edit', { page: blog.id }) }}" >Редактировать</a></li>
+                        <li class="read-more"><a href="{{ path('blog_user_page', { page: post.id }) }}" >Подробнее</a></li>
+                        <li class="read-more"><a href="{{ path('blog_user_edit', { page: post.id }) }}" >Редактировать</a></li>
+                        <li class="read-more"><a href="{{ path('blog_user_del', { page: post.id }) }}" >Удалить</a></li>
                     </ul>
                 </nav>
             </div>

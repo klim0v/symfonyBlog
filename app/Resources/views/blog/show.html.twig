@@ -1,12 +1,18 @@
 {% extends 'page.html.twig' %}
 
-{% block page_title %} {{ post.title }} {% endblock %}
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block page_title %}{{ post.title }}{% endblock %}
 
 {% block main %}
     <article class="blog">
         <div class="container blog-container">
             <div class="field field_created">
-                {{ post.created|date("d-m-Y H:m") }}
+                Автор: {{ post.user.username }}<br/>
+                {% if post.edited|date("d-m-Y H:m") != "30-11-0001 00:11" %}
+                    Изменен: {{ post.edited|date("d-m-Y H:m") }}<br/>
+                {% endif %}
+                Дата создания: {{ post.created|date("d-m-Y H:m") }}
             </div>
             <div class="field field-body">
                 {{ post.body|raw }}

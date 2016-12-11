@@ -42,7 +42,7 @@ class UserPageController extends Controller
         $userId = $user->getId();
         $repository = $this->getDoctrine()->getRepository(Blog::class);
         $post=$repository->findOneBy(array('id' => $page, 'user' => $userId));
-        
+
         return $this->render('blog/showUser.html.twig', ['post' => $post]);
     }
 
@@ -63,7 +63,7 @@ class UserPageController extends Controller
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
-            $request->query->getInt('page', $page)/*page number*/, // НОМЕРА ID НЕ РАВНЫ НОМЕРУ ПО ПОРЯДКУ
+            $request->query->getInt('page', $page)/*page number*/,
             5/*limit per page*/
         );
         return $this->render('blog/showUserAll.html.twig', ['pagination' => $pagination]);
@@ -79,11 +79,13 @@ class UserPageController extends Controller
         
         $repository = $this->getDoctrine()->getRepository(Blog::class);
         $query = $repository->createQueryBuilder('p')
-        ->where("  p.user = :user AND p.id = :idPost ")
-        ->setParameters(array('user' => $userId, 'idPost' => $page))
-        ->getQuery(); //
+            ->where("  p.user = :user AND p.id = :idPost ")
+            ->setParameters(array('user' => $userId, 'idPost' => $page))
+            ->orderBy('p.id', 'DESC')
+            ->getQuery(); //
         $post = $query->getSingleResult();
 
+        $post->setEdited(new \DateTime());
         $form = $this->createForm(FormType::class, $post);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
@@ -93,6 +95,28 @@ class UserPageController extends Controller
             return $this->redirectToRoute('blog_user_show_all');
         }
         return $this->render('blog/editBlog.html.twig', ['form_edit_blog' => $form->createView()]);
+    }
+
+    /**
+     * @Route("/user/blog/page/{page}/del", requirements={"page": "[1-9]\d*"}, name="blog_user_del")
+     */
+    public function blogDel($page, Request $request)
+    {
+        $user = $this->getUser();
+        $userId = $user->getId();
+
+        $repository = $this->getDoctrine()->getRepository(Blog::class);
+        $query = $repository->createQueryBuilder('p')
+            ->where("  p.user = :user AND p.id = :idPost ")
+            ->setParameters(array('user' => $userId, 'idPost' => $page))
+            ->getQuery(); //
+        $post = $query->getSingleResult();
+
+
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($post);
+            $em->flush();
+            return $this->redirectToRoute('blog_user_show_all');
     }
 
     /**
@@ -107,6 +131,7 @@ class UserPageController extends Controller
         $post->setUser($user);
         $form = $this->createForm(FormType::class, $post);
 
+        $post->setCreated(new \DateTime());
         $post->setCreated(new \DateTime());
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {

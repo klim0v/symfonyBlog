@@ -5,7 +5,7 @@
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-
+{#
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
             <ul>
@@ -14,7 +14,7 @@
                 </li>
             </ul>
 
-    {% else %}
+    {% else %}#}
 
         <form action="{{ path('login') }}" method="post">
             <label for="username">Логин:</label>
@@ -35,8 +35,6 @@
         </form>
 
 
-
-    {% endif %}
 
 
 {% endblock %}

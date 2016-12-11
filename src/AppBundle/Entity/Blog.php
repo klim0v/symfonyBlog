@@ -58,9 +58,31 @@ class Blog
      */
     private $created;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $edited;
+
+    /**
+     * @return mixed
+     */
+    public function getEdited()
+    {
+        return $this->edited;
+    }
+
+    /**
+     * @param mixed $edited
+     */
+    public function setEdited($edited)
+    {
+        $this->edited = $edited;
+    }
+
     public function __construct()
     {
         $this->created= new \DateTime();
+        $this->edited= new \DateTime("0001-11-30 00:11:00");
     }
 
 
