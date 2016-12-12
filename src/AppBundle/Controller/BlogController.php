@@ -20,7 +20,6 @@ use Symfony\Component\HttpFoundation\Response;
 class BlogController extends Controller
 {
     /**
-     *
      * @Route("/blog/page/{page}", requirements={"page": "[1-9]\d*"}, name="blog_page")
      * @Method("GET")
      */
@@ -33,6 +32,7 @@ class BlogController extends Controller
     }
 
     /**
+     * @Route("/", name="homepage")
      * @Route("/blog/{page}", defaults={"page": "1"}, requirements={"page": "[1-9]\d*"}, name="blog_show_all")
      * @Method("GET")
      */

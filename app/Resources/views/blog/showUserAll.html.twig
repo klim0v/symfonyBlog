@@ -26,12 +26,8 @@
                 <nav class="link-menu" role="navigation">
                     <ul>
                         <li class="read-more"><a href="{{ path('blog_user_page', { page: post.id }) }}" >Подробнее</a></li>
-                        <li class="read-more"><a href="{{ path('blog_user_edit', { page: post.id }) }}" >Редактировать</a></li>
-                        <nav class="link-menu" role="navigation">
-                            <ul>
-                                <li class="read-more"><a href="{{ path('blog_user_del', { page: post.id }) }}" onclick="return confirm('Уверены?')" >Удалить</a></li>
-                            </ul>
-                        </nav>
+                        {#<li class="read-more"><a href="{{ path('blog_user_edit', { page: post.id }) }}" >Редактировать</a></li>#}
+                        {#<li class="read-more"><a href="{{ path('blog_user_del', { page: post.id }) }}" onclick="return confirm('Удалить &laquo;{{ post.title }}&raquo; ?')" >Удалить</a></li>#}
                     </ul>
                 </nav>
             </div>

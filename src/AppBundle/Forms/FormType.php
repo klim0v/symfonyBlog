@@ -14,7 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\ResetType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FormType extends AbstractType
@@ -27,6 +27,7 @@ class FormType extends AbstractType
             ->add('summary', TextareaType::class, array('label' => 'Коротко'))
             ->add('body', TextareaType::class, array('label' => 'Полный текст'))
             ->add('Save all', SubmitType::class, array('label' => 'Сохранить'))
+            //->add('Delete', ButtonType::class, array('label' => 'Удалить'))
         ;
     }
 
