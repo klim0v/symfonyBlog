@@ -18,6 +18,9 @@
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                 <li><a href="{{ path("blog_user_show_all") }}">Мои блоги</a></li>
                                 <li><a href="{{ path("blog_user_add") }}">Добавить блог</a></li>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li><a href="{{ path("feed_back_list") }}">Сообщения</a></li>
+                                {% endif %}
                                 <li><a href="{{ path("about_us") }}">О нас</a></li>
                                 <li><a href="{{ path("logout") }}">Выход</a></li>
                             {% else %}

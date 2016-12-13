@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @package AppBundle\Entity
@@ -33,6 +34,14 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     */
+    private $fio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
      */
     private $password;
 
@@ -50,17 +59,34 @@ class User implements UserInterface
 
     public function __construct()
     {
+        // guarantees that a user always has at least one role for security
+        if (empty($this->roles)) {
+            $this->roles[] = 'ROLE_USER';
+        }
         $this->blog = new ArrayCollection();
+        
+    }
+
+    /**
+     * @return string
+     */
+
+    public function getFio()
+    {
+        return $this->fio;
+    }
+
+    /**
+     * @param string $fio
+     */
+    public function setFio($fio)
+    {
+        $this->fio = $fio;
     }
 
     public function getRoles()
     {
         $roles = $this->roles;
-
-        // guarantees that a user always has at least one role for security
-        if (empty($roles)) {
-            $roles[] = 'ROLE_USER';
-        }
 
         return array_unique($roles);
     }

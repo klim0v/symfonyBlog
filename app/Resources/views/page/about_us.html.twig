@@ -9,4 +9,19 @@
             </div>
         </div>
     </article>
+
+    <br>
+    <div style="display: block; text-align: center; ">
+        <h1> {{ legend }} </h1>
+    </div>
+    <br>
+
+    {{ form(form_feed_back) }}
+
+{% endblock %}
+{% block javascripts %}
+    <script src="/scripts/vendor/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace( 'feed_back_body' );
+    </script>
 {% endblock %}

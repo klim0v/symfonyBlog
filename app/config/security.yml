@@ -35,5 +35,6 @@ security:
                 path:   logout
                 target: homepage
     access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/user/*, roles: IS_AUTHENTICATED_FULLY }

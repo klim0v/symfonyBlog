@@ -21,6 +21,7 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('fio', TextType::class, array('label' => 'ФИО'))
             ->add('username', TextType::class, array('label' => 'Имя пользователя'))
             ->add('password', RepeatedType::class, array(
                     'type' => PasswordType::class,
@@ -28,5 +29,12 @@ class UserType extends AbstractType
                     'second_options' => array('label' => 'Повторите пароль'),
                 )
             )->add('registration', SubmitType::class, array('label' => 'Зарегистрироваться'));
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\User',
+        ));
     }
 }

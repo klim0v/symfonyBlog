@@ -20,18 +20,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserPageController extends Controller
 {
-//    /**
-//     * @Route("/user", name="blog_user")
-//     */
-//    public function helloAction($name)
-//    {
-//        /*if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
-//            throw $this->createAccessDeniedException();
-//        }*/
-//
-//        return new Response('<html><body>User page!</body></html>');
-//    }
-
     /**
      * @Route("/user/blog/page/{page}", requirements={"page": "[1-9]\d*"}, name="blog_user_page")
      * @Method("GET")
@@ -131,7 +119,6 @@ class UserPageController extends Controller
         $post->setUser($user);
         $form = $this->createForm(FormType::class, $post);
 
-        $post->setCreated(new \DateTime());
         $post->setCreated(new \DateTime());
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
