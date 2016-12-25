@@ -17,9 +17,20 @@
             <div class="field field-body">
                 {{ post.body|raw }}
             </div>
-
+            {% if is_granted('ROLE_ADMIN') %}
+                <nav class="link-menu" role="navigation">
+                    <ul>
+                        <li class="read-more"><a href="{{ path('blog_admin_edit', { page: post.id }) }}">Редактировать</a>
+                        </li>
+                        <li class="read-more"><a href="{{ path('blog_admin_del', { page: post.id }) }}"
+                                                 onclick="return confirm('Удалить &laquo;{{ post.title }}&raquo; ?')">Удалить</a>
+                        </li>
+                    </ul>
+                </nav>
+            {% endif %}
         </div>
     </article>
+
 
 
 {% endblock %}

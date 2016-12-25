@@ -12,6 +12,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Blog;
 use AppBundle\Entity\FeedBack;
 use AppBundle\Entity\User;
+use AppBundle\Forms\FormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -103,5 +104,55 @@ class AdminController extends Controller
         $em->remove($user);
         $em->flush();
         return $this->redirectToRoute('user_list');
+    }
+
+    /**
+     * @Route("/admin/blog/page/{page}/edit", requirements={"page": "[1-9]\d*"}, name="blog_admin_edit")
+     */
+    public function adminBlogEdit($page, Request $request)
+    {
+        $user = $this->getUser();
+        $userId = $user->getId();
+
+        $repository = $this->getDoctrine()->getRepository(Blog::class);
+        $query = $repository->createQueryBuilder('p')
+            ->where("p.id = :idPost ")
+            ->setParameter('idPost', $page)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery(); //
+        $post = $query->getSingleResult();
+
+        $post->setEdited(new \DateTime());
+        $form = $this->createForm(FormType::class, $post);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($post);
+            $em->flush();
+            return $this->redirectToRoute('blog_page', ['page' => $page ]);
+        }
+        return $this->render('blog/editBlog.html.twig', ['form_edit_blog' => $form->createView()]);
+    }
+
+    /**
+     * @Route("/admin/blog/page/{page}/del", requirements={"page": "[1-9]\d*"}, name="blog_admin_del")
+     */
+    public function adminBlogDel($page)
+    {
+        $user = $this->getUser();
+        $userId = $user->getId();
+
+        $repository = $this->getDoctrine()->getRepository(Blog::class);
+        $query = $repository->createQueryBuilder('p')
+            ->where("p.id = :idPost ")
+            ->setParameter('idPost', $page)
+            ->getQuery(); //
+        $post = $query->getSingleResult();
+
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($post);
+        $em->flush();
+        return $this->redirectToRoute('blog_user_show_all');
     }
 }

@@ -2,132 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9842e975-f6ff-47dc-b2af-3880206e97c8" name="Default" comment="release">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/admin/feedbacklist.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/admin/userList.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/blog/teaserUser.html.twig" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Resources/views/blog/showUserAll.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/af.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/ar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/bg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/bn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/bs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/cs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/cy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/da.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/de-ch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/el.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/en-au.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/en-ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/en-gb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/eo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/et.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/eu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/fa.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/fi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/fo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/fr-ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/fr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/gl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/gu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/he.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/hi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/hr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/hu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/id.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/is.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/ja.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/ka.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/km.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/ko.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/ku.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/lt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/lv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/mk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/mn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/ms.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/nb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/nl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/no.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/pl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/pt-br.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/pt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/ro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/si.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/sk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/sl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/sq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/sr-latn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/sr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/sv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/th.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/tr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/tt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/ug.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/uk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/vi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/zh-cn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/zh.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/dialog_ie.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/dialog_ie7.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/dialog_ie8.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/dialog_iequirks.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/editor.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/editor_gecko.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/editor_ie.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/editor_ie7.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/editor_ie8.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/editor_iequirks.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/icons.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/icons_hidpi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/images/arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/images/close.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/images/hidpi/close.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/images/hidpi/lock-open.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/images/hidpi/lock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/images/hidpi/refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/images/lock-open.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/images/lock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/images/refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/images/spinner.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/skins/moono/readme.md" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/icons.png" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/icons.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/icons_hidpi.png" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/icons_hidpi.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/link/images/anchor.png" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/link/images/anchor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/link/images/hidpi/anchor.png" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/link/images/hidpi/anchor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/blog/addBlog.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/blog/addBlog.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/blog/editBlog.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/blog/editBlog.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/page.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/page.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/blog/viewPublic.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/blog/viewPublic.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/page/about_us.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/page/about_us.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AboutUsController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AboutUsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/BlogController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/BlogController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/UserPageController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/UserPageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/FeedBack.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/FeedBack.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/symfony_blog.css" afterPath="$PROJECT_DIR$/web/css/symfony_blog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/CHANGES.md" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/CHANGES.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/build-config.js" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/build-config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/ckeditor.js" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/ckeditor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/config.js" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/contents.css" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/contents.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/en.js" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/en.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/ru.js" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/lang/ru.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/about/dialogs/about.js" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/about/dialogs/about.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/link/dialogs/link.js" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/plugins/link/dialogs/link.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/samples/css/samples.css" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/samples/css/samples.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/samples/old/assets/uilanguages/languages.js" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/samples/old/assets/uilanguages/languages.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/samples/old/datafiltering.html" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/samples/old/datafiltering.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/samples/old/index.html" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/samples/old/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/styles.js" afterPath="$PROJECT_DIR$/web/scripts/vendor/ckeditor/styles.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Resources/views/blog/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/blog/viewPublic.html.twig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Resources/views/blog/showAll.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/blog/teaserPublic.html.twig" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Resources/views/blog/showUser.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/blog/viewUser.html.twig" />
     </list>
     <ignored path="symfony.loc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -156,36 +33,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+            <state relative-caret-position="313">
+              <caret line="131" column="73" selection-start-line="131" selection-start-column="42" selection-end-line="131" selection-end-column="73" />
               <folding>
                 <element signature="e#121#147#0#PHP" expanded="true" />
-                <element signature="e#2367#2393#0#PHP" expanded="true" />
-                <element signature="e#3285#3296#1#PHP" expanded="true" />
+                <element signature="e#2397#2423#0#PHP" expanded="true" />
+                <element signature="e#3315#3326#1#PHP" expanded="true" />
+                <element signature="e#4263#4274#0#PHP" expanded="true" />
+                <element signature="e#5069#5089#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
+      <file leaf-file-name="about_us.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/page/about_us.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-190">
-              <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Blog.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Blog.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="61">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="e#891#935#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -207,8 +78,8 @@
       <file leaf-file-name="page.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/page.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+            <state relative-caret-position="153">
+              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
               <folding>
                 <element signature="e#557#565#0#Twig" expanded="true" />
                 <element signature="e#984#993#0#Twig" expanded="true" />
@@ -220,22 +91,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="symfony_blog.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/symfony_blog.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="104" column="1" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="teaserPublic.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/blog/teaserPublic.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="21" column="26" selection-start-line="14" selection-start-column="20" selection-end-line="21" selection-end-column="26" />
-              <folding />
+              <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
+              <folding>
+                <element signature="e#1222#1231#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewPublic.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/blog/viewPublic.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
+              <folding>
+                <element signature="e#1028#1042#0#Twig" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -253,8 +128,8 @@
       <file leaf-file-name="UserPageController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserPageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+            <state relative-caret-position="323">
+              <caret line="110" column="5" selection-start-line="62" selection-start-column="4" selection-end-line="110" selection-end-column="5" />
               <folding>
                 <element signature="e#122#148#0#PHP" expanded="true" />
                 <element signature="e#1039#1065#0#PHP" expanded="true" />
@@ -268,8 +143,8 @@
       <file leaf-file-name="viewUser.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/blog/viewUser.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state relative-caret-position="204">
+              <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -286,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/BlogBundle/Controller/BlogController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/GenusController.php" />
         <option value="$PROJECT_DIR$/web/js/notes.react.js" />
         <option value="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" />
@@ -318,7 +192,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/blog/show.html.twig" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/AboutUsController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/page/about_us.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/blog/showUser.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/feedbacklist.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/FeedBack.php" />
@@ -329,14 +202,16 @@
         <option value="$PROJECT_DIR$/app/Resources/views/blog/showAll.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/blog/showUserAll.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/BlogController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/UserPageController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/blog/userList.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/blog/teaserPublic.html.twig" />
         <option value="$PROJECT_DIR$/web/css/symfony_blog.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/page.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/blog/teaserUser.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/userList.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/UserPageController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/blog/viewPublic.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/page/about_us.html.twig" />
       </list>
     </option>
   </component>
@@ -501,6 +376,28 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="symfony.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="symfony.loc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -524,6 +421,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="symfony.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="symfony.loc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -723,7 +646,7 @@
       <workItem from="1481655596585" duration="10114000" />
       <workItem from="1481723226013" duration="4241000" />
       <workItem from="1481778800497" duration="3631000" />
-      <workItem from="1482668749869" duration="12443000" />
+      <workItem from="1482668749869" duration="14461000" />
     </task>
     <servers />
   </component>
@@ -760,7 +683,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189250000" />
+    <option name="totallyTimeSpent" value="191268000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
@@ -937,22 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/blog/viewPublic.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/page/about_us.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/feedbacklist.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
@@ -1111,14 +1018,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/blog/viewUser.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SecurityController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
@@ -1143,10 +1042,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/blog/teaserUser.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/blog/viewUser.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserPageController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+        <state relative-caret-position="323">
+          <caret line="110" column="5" selection-start-line="62" selection-start-column="4" selection-end-line="110" selection-end-column="5" />
           <folding>
             <element signature="e#122#148#0#PHP" expanded="true" />
             <element signature="e#1039#1065#0#PHP" expanded="true" />
@@ -1156,26 +1071,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/blog/teaserUser.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/blog/teaserPublic.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="21" column="26" selection-start-line="14" selection-start-column="20" selection-end-line="21" selection-end-column="26" />
-          <folding />
+          <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
+          <folding>
+            <element signature="e#1222#1231#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/page.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+        <state relative-caret-position="153">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
           <folding>
             <element signature="e#557#565#0#Twig" expanded="true" />
             <element signature="e#984#993#0#Twig" expanded="true" />
@@ -1186,11 +1095,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Blog.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/blog/viewPublic.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="262">
+          <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
+          <folding>
+            <element signature="e#1028#1042#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1198,6 +1109,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-190">
           <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1216,12 +1135,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+        <state relative-caret-position="313">
+          <caret line="131" column="73" selection-start-line="131" selection-start-column="42" selection-end-line="131" selection-end-column="73" />
           <folding>
             <element signature="e#121#147#0#PHP" expanded="true" />
-            <element signature="e#2367#2393#0#PHP" expanded="true" />
-            <element signature="e#3285#3296#1#PHP" expanded="true" />
+            <element signature="e#2397#2423#0#PHP" expanded="true" />
+            <element signature="e#3315#3326#1#PHP" expanded="true" />
+            <element signature="e#4263#4274#0#PHP" expanded="true" />
+            <element signature="e#5069#5089#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/page/about_us.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#891#935#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
