@@ -1,0 +1,41 @@
+{% extends 'page.html.twig' %}
+{% block title %}Публичный просмотр {% endblock %}
+{% block page_title %}Публичный просмотр{% endblock %}
+
+{% block main %}
+    <div class="blog-teaser-view">
+
+        {##}{% for post in pagination %}
+            <article class="blog blog-teaser">
+
+                <h2 class="article-title">
+                    <a href="{{ path('blog_page', { page: post.id }) }}">{{ post.title }}</a>
+                </h2>
+                <div class="container blog-container">
+                    <div class="field field_created">
+                        Автор: {{ post.user.fio }}<br/>
+                        {% if (post.edited|date("d-m-Y H:m") != "30-11-0001 00:11") %}
+                            Изменен: {{ post.edited|date("d-m-Y H:m") }}
+                        {% else %}
+                            Дата создания: {{ post.created|date("d-m-Y H:m") }}
+                        {% endif %}
+                    </div>
+                    <div class="summary_text">
+                        {{ post.summary|raw }}
+                    </div>
+                    <nav class="link-menu" role="navigation">
+                        <ul>
+                            <li class="read-more"><a href="{{ path('blog_page', { page: post.id }) }}">Подробнее</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </article>
+        {% else %}
+            <div class="well">На сайте пока нет не одного блога</div>
+        {% endfor %}
+    </div>
+    <br>
+    {{ knp_pagination_render(pagination) }}
+{% endblock %}

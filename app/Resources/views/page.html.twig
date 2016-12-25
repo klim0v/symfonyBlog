@@ -14,12 +14,13 @@
                 <div class="main-menu" id="menu_main_menu">
                     <div class="type-menu">
                         <ul>
-                            <li><a href="{{ path("blog_show_all") }}">Все блоги</a></li>
+                            <li><a href="{{ path("homepage") }}">Все блоги</a></li>
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                 <li><a href="{{ path("blog_user_show_all") }}">Мои блоги</a></li>
                                 <li><a href="{{ path("blog_user_add") }}">Добавить блог</a></li>
                                 {% if is_granted('ROLE_ADMIN') %}
-                                    <li><a href="{{ path("feed_back_list") }}">Сообщения</a></li>
+                                    <li><a href="{{ path("user_list") }}">Пользователи</a></li>
+                                    <li><a href="{{ path("feed_back_list") }}">Отзывы</a></li>
                                 {% endif %}
                                 <li><a href="{{ path("about_us") }}">О нас</a></li>
                                 <li><a href="{{ path("logout") }}">Выход</a></li>
@@ -39,12 +40,12 @@
     {% block content %}
         <div id="main_container">
         {% block site_title %}
-            <div style="display: block; text-align: center; ">{#class="page_title" id="page_title">#}
+            <div style="display: block; text-align: center; ">
                 <h1>{% block page_title %}Заголовок страницы{% endblock %}</h1>
             </div>
         {% endblock %}
             <main class="{% block main_class %}{% endblock %}">
-            {% block main %}{% endblock %}
+                {% block main %}{% endblock %}
             </main>
         </div>
     {% endblock %}

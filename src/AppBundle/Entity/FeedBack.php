@@ -55,9 +55,10 @@ class FeedBack
     private $created;
     
     /**
+     * @ORM\Column(type="string")
      * @Assert\Email(
-     *     message = "The email '{{ value }}' is not a valid email.",
-     *     checkMX = true
+     *     message = "Электронная почта '{{ value }}' не действительна.",
+     *     checkMX = false
      * )
      */
     private $email;
@@ -79,7 +80,7 @@ class FeedBack
     }
     
     
-
+    
     /**
      * @return mixed
      */

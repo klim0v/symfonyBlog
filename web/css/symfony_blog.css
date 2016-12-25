@@ -116,6 +116,10 @@ footer .block-copyright {
   font-size: 14px;
   color: #777777;
 }
+#main_container article .summary_text {
+  display: block;
+  text-align: center;
+}
 /* line 17, ../../sass/include/_main.scss */
 #main_container article.blog-teaser {
   padding-bottom: 20px;
@@ -154,35 +158,6 @@ footer .block-copyright {
   text-decoration: none;
 }
 
-/* line 3, ../../sass/include/_admin.scss */
-.main-view-admin .menu-item a {
-  color: #ff6f00;
-  text-decoration: none;
-}
-/* line 10, ../../sass/include/_admin.scss */
-.main-view-admin .blog-view-admin .field-row {
-  margin-bottom: 20px;
-}
-/* line 12, ../../sass/include/_admin.scss */
-.main-view-admin .blog-view-admin .field-row .field {
-  display: inline-block;
-}
-/* line 17, ../../sass/include/_admin.scss */
-.main-view-admin .blog-view-admin .field-title {
-  width: calc(90% - 4px);
-  color: #1a665a;
-  font-size: 18px;
-}
-/* line 23, ../../sass/include/_admin.scss */
-.main-view-admin .blog-view-admin .field-blog-edit {
-  width: 10%;
-  text-align: right;
-}
-/* line 25, ../../sass/include/_admin.scss */
-.main-view-admin .blog-view-admin .field-blog-edit a {
-  color: #ff6f00;
-  text-decoration: none;
-}
 
 /* line 1, ../../sass/include/_form.scss */
 form {
@@ -222,4 +197,32 @@ form button {
   font-weight: bold;
   padding: 5px 20px;
   border-width: 0;
+}
+
+/* line 1, ../../sass/include/_pagination.scss */
+.pagination {
+  text-align: center;
+}
+/* line 3, ../../sass/include/_pagination.scss */
+.pagination span {
+  padding: 0;
+  margin: 0;
+}
+/* line 6, ../../sass/include/_pagination.scss */
+.pagination span.page{
+  padding: 0;
+  margin: 0 5px;
+  list-style-type: none;
+  display: inline-block;
+  color: #ff6f00;
+}
+/* line 12, ../../sass/include/_pagination.scss */
+.pagination span a {
+  color: #ff6f00;
+  text-decoration: none;
+}
+/* line 16, ../../sass/include/_pagination.scss */
+.pagination span.current {
+  color: #1a665a;
+  font-weight: bold;
 }

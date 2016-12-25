@@ -1,0 +1,46 @@
+{% extends 'page.html.twig' %}
+
+{% block title %}Отзывы пользователей{% endblock %}
+
+{% block page_title %}Отзывы пользователей{% endblock %}
+
+{% block main %}
+    <div class="blog-teaser-view">
+        {% for item in pagination %}
+            <article class="blog blog-teaser" xmlns="http://www.w3.org/1999/html">
+
+                {#<h2 class="article-title">#}
+                {#<a href="{{ path('blog_user_page', { page: post.id }) }}">{{ post.title }}</a>#}
+                {#</h2>#}
+                <div class="container blog-container">
+                    <div class="field field_created">
+                        Автор: {{ item.name }}<br>
+                        Email: {{ item.email }}<br/>
+                        Время написания отзыва: {{ item.created|date("d-m-Y H:m") }}
+                    </div>
+
+                    <div style="display: block; text-align: center;">
+                        <h2>{{ item.title|raw }}</h2>
+                        {{ item.body|raw }}
+                    </div>
+                    <nav class="link-menu" role="navigation">
+                        <ul>
+                            <li class="read-more">
+                                <a href="{{ path('feed_back_del', { page: item.id }) }}"
+                                   onclick="return confirm('Удалить отзыв от &laquo;{{ item.name }}&raquo; ?')">
+                                    Удалить
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </article>
+        {% else %}
+            <div class="well">В ближайшее время не было оставленно не одного отзыва</div>
+        {% endfor %}
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

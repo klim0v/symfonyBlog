@@ -9,20 +9,99 @@
 namespace AppBundle\Controller;
 
 
-use Symfony\Component\HttpFoundation\Response;
+use AppBundle\Entity\Blog;
+use AppBundle\Entity\FeedBack;
+use AppBundle\Entity\User;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
-class AdminController
+class AdminController extends Controller
 {
     /**
      * @Route("/admin/feedback", name="feed_back_list")
+     *
      */
-    public function helloAction($name)
+    public function feedBackAction($page, Request $request)
     {
-        /*if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
-            throw $this->createAccessDeniedException();
-        }*/
+        $rep = $this->getDoctrine()->getRepository(FeedBack::class);
+        $query= $rep->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery();
 
-        return new Response('<html><body>User page!</body></html>');
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            5/*limit per page*/
+        );
+        // parameters to template
+        return $this->render('admin/feedbacklist.html.twig', array('pagination' => $pagination));
+    }
+
+    /**
+     * @Route("/admin/feedback/{page}/del", requirements={"page": "[1-9]\d*"}, name="feed_back_del")
+     */
+    public function blogDel($page, Request $request)
+    {
+        $repository = $this->getDoctrine()->getRepository(FeedBack::class);
+        $query = $repository->createQueryBuilder('p')
+            ->where(" p.id = :idPost ")
+            ->setParameter('idPost', $page)
+            ->getQuery(); //
+        $feedBack = $query->getSingleResult();
+
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($feedBack);
+        $em->flush();
+        return $this->redirectToRoute('feed_back_list');
+    }
+
+    /**
+     * @Route("/admin/users", name="user_list")
+     *
+     */
+    public function UserAction(Request $request)
+    {
+        $rep = $this->getDoctrine()->getRepository(User::class);
+        $query= $rep->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery();
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            5/*limit per page*/
+        );
+        // parameters to template
+        return $this->render('admin/userList.html.twig', array('pagination' => $pagination));
+    }
+
+    /**
+     * @Route("/admin/users/{page}/del", requirements={"page": "[1-9]\d*"}, name="user_del")
+     */
+    public function UserDel($page, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'DELETE AppBundle:Blog u 
+            WHERE u.user = :idUser'
+        )->setParameter('idUser', $page);
+        $query->execute();
+
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $query = $repository->createQueryBuilder('p')
+            ->where(" p.id = :idUser AND p.roles <> ['ROLE_ADMIN'] ")
+            ->setParameter('idUser', $page)
+            ->getQuery();
+        $user = $query->getSingleResult();
+
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($user);
+        $em->flush();
+        return $this->redirectToRoute('user_list');
     }
 }

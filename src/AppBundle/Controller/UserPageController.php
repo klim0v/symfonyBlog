@@ -23,22 +23,24 @@ class UserPageController extends Controller
     /**
      * @Route("/user/blog/page/{page}", requirements={"page": "[1-9]\d*"}, name="blog_user_page")
      * @Method("GET")
+     * @param $page
+     * @return Response
      */
-    public function indexUserAction($page, Request $request)
+    public function indexUserAction($page)
     {
         $user = $this->getUser();
         $userId = $user->getId();
         $repository = $this->getDoctrine()->getRepository(Blog::class);
         $post=$repository->findOneBy(array('id' => $page, 'user' => $userId));
 
-        return $this->render('blog/showUser.html.twig', ['post' => $post]);
+        return $this->render(':blog:viewUser.html.twig', ['post' => $post]);
     }
 
     /**
-     * @Route("/user/blog/{page}", defaults={"page": "1"}, requirements={"page": "[1-9]\d*"}, name="blog_user_show_all")
+     * @Route("/user/blog", name="blog_user_show_all")
      * @Method("GET")
      */
-    public function blogUserViewAction($page, Request $request)
+    public function blogUserViewAction(Request $request)
     {
         $user = $this->getUser();
         $userId = $user->getId();
@@ -51,10 +53,11 @@ class UserPageController extends Controller
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
-            $request->query->getInt('page', $page)/*page number*/,
+        
+            $request->query->getInt('page', 1)/*page number*/,
             5/*limit per page*/
         );
-        return $this->render('blog/showUserAll.html.twig', ['pagination' => $pagination]);
+        return $this->render(':blog:teaserUser.html.twig', ['pagination' => $pagination]);
     }
 
     /**
@@ -88,7 +91,7 @@ class UserPageController extends Controller
     /**
      * @Route("/user/blog/page/{page}/del", requirements={"page": "[1-9]\d*"}, name="blog_user_del")
      */
-    public function blogDel($page, Request $request)
+    public function blogDel($page)
     {
         $user = $this->getUser();
         $userId = $user->getId();

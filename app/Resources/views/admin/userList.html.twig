@@ -1,0 +1,38 @@
+{% extends 'page.html.twig' %}
+{% block title %}Список пользователей{% endblock %}
+{% block page_title %}Зарегистрированные пользователи{% endblock %}
+
+{% block main %}
+    <div class="blog-teaser-view">
+
+        {##}{% for user in pagination %}
+            <article class="blog blog-teaser">
+
+                <h2 class="article-title">
+                    <a href="{{ path('blog_page', { page: user.id }) }}">{{ user.fio }}</a>
+                </h2>
+                <div class="field field_created">
+                    {% if user.roles  == ['ROLE_ADMIN'] %}
+                        Права: Администратор
+                    {% endif %}
+                </div>
+                <nav class="link-menu" role="navigation">
+                        <ul>
+                            <li class="read-more">
+                                <a href="{{ path('user_del', { page: user.id }) }}"
+                                   onclick="return confirm('Удалить пользователя &laquo;{{ user.fio }}&raquo; и все его блоги?')" >
+                                    Удалить
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+
+            </article>
+        {% else %}
+            <div class="well">На сайте пока не зарегистрированно не одного пользователя</div>
+        {% endfor %}
+    </div>
+    <br>
+    {{ knp_pagination_render(pagination) }}
+{% endblock %}

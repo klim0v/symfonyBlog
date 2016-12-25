@@ -1,0 +1,32 @@
+{% extends 'page.html.twig' %}
+{% block title %}  {{ post.title }} {% endblock %}
+
+{% block page_title %} {{ post.title }} {% endblock %}
+{% block main %}
+    <article class="blog">
+        <div class="container blog-container">
+            <div class="field field_created">
+                {% if post.edited|date("d-m-Y H:m") != "30-11-0001 00:11" %}
+                    Изменен: {{ post.edited|date("d-m-Y H:m") }}<br>
+                {% endif %}
+                Дата создания: {{ post.created|date("d-m-Y H:m") }}
+            </div>
+            <div class="field field-body">
+                {{ post.body|raw }}
+            </div>
+            <nav class="link-menu" role="navigation">
+                <ul>
+                    <li class="read-more"><a href="{{ path('blog_user_edit', { page: post.id }) }}">Редактировать</a>
+                    </li>
+                    <li class="read-more"><a href="{{ path('blog_user_del', { page: post.id }) }}"
+                                             onclick="return confirm('Удалить &laquo;{{ post.title }}&raquo; ?')">Удалить</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </article>
+
+
+
+{% endblock %}
+

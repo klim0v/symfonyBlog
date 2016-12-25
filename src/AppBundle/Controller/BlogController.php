@@ -28,15 +28,15 @@ class BlogController extends Controller
 
         $repository = $this->getDoctrine()->getRepository(Blog::class);
         $post = $post=$repository->findOneBy(array('id' => $page));
-        return $this->render('blog/show.html.twig', ['post' => $post]);
+        return $this->render(':blog:viewPublic.html.twig', ['post' => $post]);
     }
 
     /**
+//     * @Route("/blog", name="blog_show_all")
      * @Route("/", name="homepage")
-     * @Route("/blog/{page}", defaults={"page": "1"}, requirements={"page": "[1-9]\d*"}, name="blog_show_all")
      * @Method("GET")
      */
-    public function blogViewAction($page, Request $request)
+    public function blogViewAction(Request $request)
     {
 
         $rep = $this->getDoctrine()->getRepository(Blog::class);
@@ -47,11 +47,11 @@ class BlogController extends Controller
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
-            $request->query->getInt('page', $page)/*page number*/,
+            $request->query->getInt('page', 1)/*page number*/,
             5/*limit per page*/
         );
         // parameters to template
-        return $this->render('blog/showAll.html.twig', array('pagination' => $pagination));
+        return $this->render(':blog:teaserPublic.html.twig', array('pagination' => $pagination));
     }
 
     

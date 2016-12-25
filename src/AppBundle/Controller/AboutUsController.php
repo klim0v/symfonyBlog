@@ -35,8 +35,8 @@ class AboutUsController extends Controller
             $em->persist($feedBack);
             $em->flush();
             $legend=$feedBack->getName()." cпасибо за ваше мнение о нас!";
-            //return $this->redirectToRoute('page/about_us.html.twig',                ['form_feed_back' => $form->createView(), 'legend'=>$legend]);
-        }
+            $form = $this->createForm(FeedBackType::class);
+            return $this->render('page/about_us.html.twig', ['form_feed_back' => $form->createView(), 'legend'=>$legend]);        }
         // replace this example code with whatever you need
         return $this->render('page/about_us.html.twig', ['form_feed_back' => $form->createView(), 'legend'=>$legend]);
     }
