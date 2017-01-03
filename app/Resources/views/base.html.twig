@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <title>{% block title %}Добро пожаловать{% endblock %}</title>
+    <meta name="keywords"
+          content="{% block keywords %}Блог{% endblock %}"/>
+    <meta name="description"
+          content="{% block description %}Блог{% endblock %}"/>
     {% block stylesheets %}
         <link rel="stylesheet" href="/css/symfony_blog.css" />
     {% endblock %}

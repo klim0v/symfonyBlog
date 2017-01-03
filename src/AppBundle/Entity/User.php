@@ -53,7 +53,7 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-    * @ORM\OneToMany(targetEntity="Blog", mappedBy="user")
+    * @ORM\OneToMany(targetEntity="Blog", mappedBy="user", cascade={"persist", "remove"} )
     */
     private $blog;
 

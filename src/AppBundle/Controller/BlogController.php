@@ -28,7 +28,9 @@ class BlogController extends Controller
 
         $repository = $this->getDoctrine()->getRepository(Blog::class);
         $post = $post=$repository->findOneBy(array('id' => $page));
-        return $this->render(':blog:viewPublic.html.twig', ['post' => $post]);
+        if($post)
+            return $this->render(':blog:viewPublic.html.twig', ['post' => $post]);
+        return $this->redirect($this->generateUrl('homepage'));
     }
 
     /**

@@ -26,11 +26,11 @@ class AdminController extends Controller
     public function feedBackAction($page, Request $request)
     {
         $rep = $this->getDoctrine()->getRepository(FeedBack::class);
-        $query= $rep->createQueryBuilder('p')
+        $query = $rep->createQueryBuilder('p')
             ->orderBy('p.id', 'DESC')
             ->getQuery();
 
-        $paginator  = $this->get('knp_paginator');
+        $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
@@ -66,11 +66,11 @@ class AdminController extends Controller
     public function UserAction(Request $request)
     {
         $rep = $this->getDoctrine()->getRepository(User::class);
-        $query= $rep->createQueryBuilder('p')
+        $query = $rep->createQueryBuilder('p')
             ->orderBy('p.id', 'DESC')
             ->getQuery();
 
-        $paginator  = $this->get('knp_paginator');
+        $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
@@ -85,25 +85,20 @@ class AdminController extends Controller
      */
     public function UserDel($page, Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery(
-            'DELETE AppBundle:Blog u 
-            WHERE u.user = :idUser'
-        )->setParameter('idUser', $page);
-        $query->execute();
-
         $repository = $this->getDoctrine()->getRepository(User::class);
         $query = $repository->createQueryBuilder('p')
-            ->where(" p.id = :idUser AND p.roles <> ['ROLE_ADMIN'] ")
+            ->where(" p.id = :idUser")
             ->setParameter('idUser', $page)
             ->getQuery();
         $user = $query->getSingleResult();
 
-
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($user);
-        $em->flush();
-        return $this->redirectToRoute('user_list');
+        if ($user->getRoles() != ['ROLE_ADMIN']) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($user);
+            $em->flush();
+        } else {
+            return $this->redirectToRoute('user_list');
+        }
     }
 
     /**
@@ -111,9 +106,6 @@ class AdminController extends Controller
      */
     public function adminBlogEdit($page, Request $request)
     {
-        $user = $this->getUser();
-        $userId = $user->getId();
-
         $repository = $this->getDoctrine()->getRepository(Blog::class);
         $query = $repository->createQueryBuilder('p')
             ->where("p.id = :idPost ")
@@ -125,11 +117,11 @@ class AdminController extends Controller
         $post->setEdited(new \DateTime());
         $form = $this->createForm(FormType::class, $post);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
-            return $this->redirectToRoute('blog_page', ['page' => $page ]);
+            return $this->redirectToRoute('blog_page', ['page' => $page]);
         }
         return $this->render('blog/editBlog.html.twig', ['form_edit_blog' => $form->createView()]);
     }
@@ -139,9 +131,6 @@ class AdminController extends Controller
      */
     public function adminBlogDel($page)
     {
-        $user = $this->getUser();
-        $userId = $user->getId();
-
         $repository = $this->getDoctrine()->getRepository(Blog::class);
         $query = $repository->createQueryBuilder('p')
             ->where("p.id = :idPost ")
