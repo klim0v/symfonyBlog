@@ -31,9 +31,10 @@ class UserPageController extends Controller
         $user = $this->getUser();
         $userId = $user->getId();
         $repository = $this->getDoctrine()->getRepository(Blog::class);
-        $post=$repository->findOneBy(array('id' => $page, 'user' => $userId));
-
-        return $this->render(':blog:viewUser.html.twig', ['post' => $post]);
+        $post = $repository->findOneBy(array('id' => $page, 'user' => $userId));
+        if ($post)
+            return $this->render(':blog:viewUser.html.twig', ['post' => $post]);
+        return $this->redirect($this->generateUrl('blog_user_show_all'));
     }
 
     /**
@@ -50,10 +51,10 @@ class UserPageController extends Controller
             ->setParameter('user', $userId)
             ->orderBy('p.id', 'DESC')
             ->getQuery(); //
-        $paginator  = $this->get('knp_paginator');
+        $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query, /* query NOT result */
-        
+
             $request->query->getInt('page', 1)/*page number*/,
             5/*limit per page*/
         );
@@ -67,7 +68,7 @@ class UserPageController extends Controller
     {
         $user = $this->getUser();
         $userId = $user->getId();
-        
+
         $repository = $this->getDoctrine()->getRepository(Blog::class);
         $query = $repository->createQueryBuilder('p')
             ->where("  p.user = :user AND p.id = :idPost ")
@@ -79,7 +80,7 @@ class UserPageController extends Controller
         $post->setEdited(new \DateTime());
         $form = $this->createForm(FormType::class, $post);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
@@ -104,10 +105,10 @@ class UserPageController extends Controller
         $post = $query->getSingleResult();
 
 
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($post);
-            $em->flush();
-            return $this->redirectToRoute('blog_user_show_all');
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($post);
+        $em->flush();
+        return $this->redirectToRoute('blog_user_show_all');
     }
 
     /**
@@ -124,7 +125,7 @@ class UserPageController extends Controller
 
         $post->setCreated(new \DateTime());
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();

@@ -1,0 +1,14 @@
+{% extends 'page.html.twig' %}
+{% block title %}Страница не найдена{% endblock %}
+{% block page_title %}Страница не найдена{% endblock %}
+{% block main %}
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {# ... #}
+    {% endif %}
+    <h2>Ошибка 404</h2>
+    <p>
+        Запрашиваемая страница не найдена.
+        Проверьте правельность введенного URL или <a href="{{ path("homepage") }}">вернитесь на главную</a>.
+    </p>
+{% endblock %}
