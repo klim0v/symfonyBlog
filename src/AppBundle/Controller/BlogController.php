@@ -34,7 +34,7 @@ class BlogController extends Controller
     }
 
     /**
-//     * @Route("/blog", name="blog_show_all")
+     * @Route("/blog", name="blog_show_all")
      * @Route("/", name="homepage")
      * @Method("GET")
      */
